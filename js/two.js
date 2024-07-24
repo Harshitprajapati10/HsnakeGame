@@ -1,7 +1,5 @@
 // Game Constants & Variables
 
-alert('Updated on 24/JUL/24 : "HAPPY BIRTHDAY SUJAL"')
-
 let progressboxes = document.getElementsByClassName("colors")
 let barToFilled = Array.from(progressboxes);
 let notification = document.getElementsByClassName("notification")[0]
@@ -10,12 +8,13 @@ barToFilled.forEach((a)=>{
 })
 
 let inputDir = {x: 0, y: 0}; 
-const foodSound = new Audio('music/food.mp3');
-const gameOverSound = new Audio('music/gameover.mp3');
-const moveSound = new Audio('music/move.mp3');
-const musicSound = new Audio('music/music.mp3');
+const foodSound = new Audio('../music/food.mp3');
+const gameOverSound = new Audio('../music/gameover.mp3');
+const moveSound = new Audio('../music/move.mp3');
+const musicSound = new Audio('../music/music.mp3');
 let speed = 8;
 let score = 0;
+
 let lastPaintTime = 0;
 let snakeArr = [
     {x: 13, y: 15}
@@ -23,6 +22,9 @@ let snakeArr = [
 
 food = {x: 6, y: 7};
 
+// function createBarColor(number){ //takes a number 1 to 30
+    
+// }
 
 //function to increase level
 function gameBar(number) {
@@ -71,12 +73,13 @@ function gameBar(number) {
     else if(number >30){
         // console.log("next level")
         notification.innerHTML = `<div class="message">
-                <p>Level Over</p>
-                <span><a id="nextLevel" href="Levels/two.html">Next Level</a></span>
+                <p>DONE!</p>
+                <span><a id="nextLevel" href="../index.html">Previous Level</a></span>
             </div> `
         // inputDir =  {x: 0, y: 0}; 
         snakeArr = [{x: 13, y: 15}];
     }
+    
     
 }
 
@@ -99,9 +102,9 @@ function isCollide(snake) {
         }
     }
     // If you bump into the wall
-    // if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0){
-    //     return true;
-    // }
+    if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0){
+        return true;
+    }
         
     return false;
 }
@@ -122,18 +125,18 @@ function gameEngine(){
         
     }
 
-    if(snakeArr[0].x <= 1){
-        snakeArr[0].x = 17;
-    }
-    else if(snakeArr[0].x >= 18){
-        snakeArr[0].x = 1;
-    }
-    else if( snakeArr[0].y >= 18){
-        snakeArr[0].y = 1;
-    }
-    else if(snakeArr[0].y <= 1){
-        snakeArr[0].y = 17;
-    }
+    // if(snakeArr[0].x <= 1){
+    //     snakeArr[0].x = 17;
+    // }
+    // else if(snakeArr[0].x >= 18){
+    //     snakeArr[0].x = 1;
+    // }
+    // else if( snakeArr[0].y >= 18){
+    //     snakeArr[0].y = 1;
+    // }
+    // else if(snakeArr[0].y <= 1){
+    //     snakeArr[0].y = 17;
+    // }
     
       
 
@@ -207,29 +210,28 @@ window.addEventListener('keydown', e =>{
     moveSound.play();
     switch (e.key) {
         case "ArrowUp":
-            // console.log("ArrowUp");
+            console.log("ArrowUp");
             inputDir.x = 0;
             inputDir.y = -1;
             break;
 
         case "ArrowDown":
-            // console.log("ArrowDown");
+            console.log("ArrowDown");
             inputDir.x = 0;
             inputDir.y = 1;
             break;
 
         case "ArrowLeft":
-            // console.log("ArrowLeft");
+            console.log("ArrowLeft");
             inputDir.x = -1;
             inputDir.y = 0;
             break;
 
         case "ArrowRight":
-            // console.log("ArrowRight");
+            console.log("ArrowRight");
             inputDir.x = 1;
             inputDir.y = 0;
             break;
-        
         default:
             break;
     }
@@ -264,4 +266,3 @@ down.addEventListener("click",()=>{
     inputDir.x = 0;
     inputDir.y = 1;
 })
-

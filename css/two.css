@@ -34,11 +34,11 @@
 }
 
 #board{
-    background: url("../img/back.jpg");
-    /* background-size: cover; */
-    width: 94vmin;
-    height: 99vmin;
-    border: 5px solid rgb(17, 63, 11);
+    background: url("../img/th.jpeg");
+    background-size: cover;
+    width: 92vmin;
+    height: 95vmin;
+    border: 15px solid rgb(0, 0, 0);
     display: grid;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
@@ -128,7 +128,6 @@
     width: 12px;
     margin: 0.3px;
   }
-
   .notification{
     position: absolute;
     top: 70px;
@@ -164,20 +163,19 @@
     border: 1px solid black;
     font-family: 'New Tegomin', serif; 
   }
-
 @media only screen and (max-width: 767px) {
     body{
         background-color: rgb(108, 158, 64);
     }
     .body{
-        background-size: contain;
-    }
-    .head{
-        transform: scale(2.80);
-    }
-    .food{
-        transform: scale(1.80);
-    }
+      background-size: contain;
+  }
+  .head{
+      transform: scale(2.80);
+  }
+  .food{
+      transform: scale(1.80);
+  }
     #scoreBox{
         position: absolute;
         top: 2px;
@@ -194,5 +192,6 @@
     .snake{
       transform: scale(1.30)
     }
+    
 }
   
